@@ -18,11 +18,12 @@
     "babel-preset-stage-3": "^6.24.1",
     "serverless-offline": "^3.25.6",
     "serverless-webpack": "^5.1.0",
-    "webpack": "^4.16.2",
+    "webpack": "^5",
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
+    "babel-runtime": "^6.26.0",
     "octonode": "^0.9.5",
-    "babel-runtime": "^6.26.0"
+    "webpack-cli": "^5.1.1"
   }
 }

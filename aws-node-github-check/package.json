@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "main": "handler.js",
   "scripts": {
+    "build": "npx webpack --mode=production && mkdir -p target && spin js2wasm -o target/sampler.wasm dist/spin.js",
     "deploy": "serverless deploy",
     "logs": "serverless logs -f githubCheck -t"
   },
@@ -18,10 +19,11 @@
     "serverless-offline": "^3.25.6",
     "serverless-webpack": "^5.1.0",
     "webpack": "^4.16.2",
+    "webpack-cli": "^4.10.0",
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
-    "octonode": "^0.9.5",
-    "babel-runtime": "^6.26.0"
+    "babel-runtime": "^6.26.0",
+    "octonode": "^0.9.5"
   }
 }

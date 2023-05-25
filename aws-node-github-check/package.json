@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "main": "handler.js",
   "scripts": {
+    "build": "npx webpack --mode=production && mkdir -p target && spin js2wasm -o target/sampler.wasm dist/spin.js",
     "deploy": "serverless deploy",
     "logs": "serverless logs -f githubCheck -t"
   },

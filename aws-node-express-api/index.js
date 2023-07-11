@@ -1,23 +1,26 @@
-const serverless = require("serverless-http");
-const express = require("express");
-const app = express();
+const router = utils.Router();
 
-app.get("/", (req, res, next) => {
-  return res.status(200).json({
-    message: "Hello from root!",
-  });
+router.get("/", (req, res, next) => {
+  return {
+    status: 200,
+    body: "Hello from root!",
+  };
 });
 
-app.get("/path", (req, res, next) => {
-  return res.status(200).json({
-    message: "Hello from path!",
-  });
+router.get("/path", (req, res, next) => {
+  return {
+    status: 200,
+    body: "Hello from path!",
+  };
 });
 
-app.use((req, res, next) => {
-  return res.status(404).json({
-    error: "Not Found",
-  });
+router.all("*", (req, res, next) => {
+  return {
+    status: 404,
+    body: "Not found",
+  };
 });
 
-module.exports.handler = serverless(app);
+export async function handleRequest(request) {
+  return router.handleRequest(request);
+}

@@ -1,0 +1,17 @@
+spin_manifest_version = "1"
+description = "Take it for a Spin"
+name = "aws-node-express-api"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+
+[[component]]
+id = "spin-component-index"
+source = "./target/index.spin.wasm"
+exclude_files = ["**/node_modules"]
+allowed_http_hosts = ["insecure:allow-all"]
+[component.trigger]
+route = "/..."
+[component.build]
+command = "npx --yes webpack --config=index.webpack.config.js --mode=production && mkdir -p target && ./spin js2wasm -o target/index.spin.wasm ./dist/index.spin.js"
+workdir = ""

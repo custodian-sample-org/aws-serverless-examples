@@ -1,0 +1,15 @@
+spin_manifest_version = "1"
+authors = ["Morgante Pell <me@morgante.net>"]
+description = ""
+name = "aws-node"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = "aws-node"
+source = "target/aws-node.wasm"
+exclude_files = ["**/node_modules"]
+[component.trigger]
+route = "/..."
+[component.build]
+command = "npm run build"
